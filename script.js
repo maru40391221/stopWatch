@@ -1,14 +1,11 @@
-let hours =0;
-let minutes =0;
-let seconds =0;
+let Hours =0;
+let Minutes =0;
+let Seconds =0;
+let MilliSeconds=0;
 
 const button1 = document.querySelector ("#button1");
 const button2 = document.querySelector ("#button2");
 const button3 = document.querySelector ("#button3");
-
-const hour = document.querySelector ("#hour");
-const minute = document.querySelector ("#minute");
-const second = document.querySelector ("#second");
 
 button1.onclick = startTime;
 button2.onclick = stopTime;
@@ -17,8 +14,7 @@ button3.onclick = resetTime;
 
 
 function startTime(){
-    setInterval(addSecond, 1000);
-    console.log("pushed");
+    setInterval(appendMillisecond, 100);
 }
 
 function stopTime(){
@@ -29,11 +25,33 @@ function resetTime(){
     console.log ("reset");
 }
 
-function addSecond (){
-    ;
-    second.innerText = second;
-    console.log("addSecond");
+function appendMillisecond(){
+
+    if ( MilliSeconds < 9){
+    MilliSeconds++;
+    MilliSeconds.innerHTML = "0" + MilliSeconds;
+    //console.log (MilliSeconds);
+    document.getElementById("timer").innerHTML = MilliSeconds;
+    }else if (MilliSeconds= 10){
+        setInterval(appendSecond, 1000);
+        setInterval(appendMillisecond, 100);
+    }
 
 }
+
+function appendSecond(){
+
+    if ( Seconds < 59){
+    Seconds++;
+    Seconds.innerHTML = "0" + Seconds;
+    //console.log (MilliSeconds);
+    document.getElementById("timer").innerHTML = Seconds + "." + MilliSeconds;
+    }else if (Seconds= 60){
+        setInterval(appendSecond, 1000);
+        setInterval(appendMillisecond, 100);
+    }
+
+}
+
 
 
