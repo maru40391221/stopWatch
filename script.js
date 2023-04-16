@@ -10,19 +10,32 @@ const button3 = document.querySelector ("#button3");
 button1.onclick = startTime;
 button2.onclick = stopTime;
 button3.onclick = resetTime;
+ 
+button2.disabled = true;
+button3.disabled = true;
+
 
 
 function startTime(){
     setInterval(appendMillisecond, 100);
-    
+    button1.disabled = true;
+    button2.disabled = false;
+    button3.disabled = false;
+
 }
 
 function stopTime(){
-
+    button1.disabled = false;
+    button2.disabled = true;
+    button3.disabled = true;
+    button1.innerHTML = "Re-start";
 }
 
 function resetTime(){
-    console.log ("reset");
+    button1.disabled = false;
+    button2.disabled = true;
+    button3.disabled = true;
+    button1.innerHTML = "Start";
 }
 
 function appendMillisecond(){
