@@ -27,31 +27,43 @@ function resetTime(){
 
 function appendMillisecond(){
 
-    if ( MilliSeconds < 9){
+    if ( MilliSeconds <= 9){
     MilliSeconds++;
     MilliSeconds.innerHTML = "0" + MilliSeconds;
-    //console.log (MilliSeconds);
-    document.getElementById("timer").innerHTML = MilliSeconds;
-    }else if (MilliSeconds= 10){
-        setInterval(appendSecond, 1000);
-        setInterval(appendMillisecond, 100);
-    }
+    console.log (MilliSeconds + "ms");
+   document.getElementById("timer").innerHTML = MilliSeconds;
+
+    } else if (MilliSeconds <= 10){
+        MilliSeconds = 0;
+        Seconds ++;
+        console.log (Seconds + "s" );
+
+    } else if (Seconds === 60){
+        Seconds= 0;
+        appendMinute ();
+    } 
 
 }
 
-function appendSecond(){
+function appendMinute (){
+    Minutes ++;
+    console.log (Minutes + "m");
+}
+
+
+/*function second(){
+    setInterval(appendSecond, 100);
+
+    function appendSecond() {
+
+    }
 
     if ( Seconds < 59){
     Seconds++;
     Seconds.innerHTML = "0" + Seconds;
     //console.log (MilliSeconds);
-    document.getElementById("timer").innerHTML = Seconds + "." + MilliSeconds;
-    }else if (Seconds= 60){
-        setInterval(appendSecond, 1000);
-        setInterval(appendMillisecond, 100);
+    document.getElementById("timer").innerHTML = Seconds + "." + Seconds;
     }
 
 }
-
-
-
+*/
