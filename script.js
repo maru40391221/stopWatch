@@ -12,14 +12,13 @@ button2.onclick = stopTime;
 button3.onclick = resetTime;
 
 
-
 function startTime(){
     setInterval(appendMillisecond, 100);
     
 }
 
 function stopTime(){
-    console.log ("stop");
+
 }
 
 function resetTime(){
@@ -28,63 +27,66 @@ function resetTime(){
 
 function appendMillisecond(){
 
-    if ( MilliSeconds <= 8){
+//if ( MilliSeconds <= 8){
+
+    if ( MilliSeconds <= 2){
     MilliSeconds++;
     MilliSeconds.innerHTML = "0" + MilliSeconds;
     console.log (MilliSeconds + "ms");
-    timer.innerHTML = MilliSeconds;
-
-    } else if (MilliSeconds == 9){
+    document.getElementById("MilliSeconds").innerHTML = MilliSeconds;
+//} else if (MilliSeconds == 9){
+    } else if (MilliSeconds == 3){
         MilliSeconds = 0;
+        document.getElementById("MilliSeconds").innerHTML = MilliSeconds;
+        appendSecond();
+    } 
+
+
+}
+
+function appendSecond(){
+//if (Seconds <=58) {
+    if (Seconds <=5) {
         Seconds ++;
         console.log (Seconds + "Seconds" );
-        timer.innerHTML = Seconds;
-    } 
-
-    if (Seconds == 60 ){
-        Seconds= 0;
+        document.getElementById("Seconds").innerHTML = Seconds;
+//} else if (Seconds == 59){
+    } else if (Seconds == 6){
+        Seconds = 0;
         appendMinute ();
-        //console.log (appendMinute);
-    } 
+        document.getElementById("Seconds").innerHTML = Seconds;
+        console.log (Seconds + "Seconds" );
+    }
 
 }
+
 
 function appendMinute (){
-    Minutes ++;
-    console.log (Minutes + "Minutes");
-
-    if (Minutes == 60 ){
-        Minutes= 0;
+//if (Minutes <=58) {
+    if (Minutes <=3) {
+        Minutes ++;
+        console.log (Minutes + "Minutes" );
+        document.getElementById("Minutes").innerHTML = Minutes;
+//} else if (Minutes == 59){
+    } else if (Minutes == 4){
+        Minutes = 0;
         appendHours ();
-        //console.log (appendMinute);
-    } 
-}
+        console.log (Minutes + "Minutes");
+        document.getElementById("Minutes").innerHTML = Minutes;
+    }
+} 
 
-function appendHours (){
-    Hours ++;
-    console.log (Hours + "Hours");
-}
-
-
-
-
-/*function second(){
-    setInterval(appendSecond, 100);
-
-    function appendSecond() {
+function appendHours (){ 
+//if (Hours <=22) {
+    if (Hours <=3) {
+        Hours ++;
+        console.log (Hours + "hours");
+        document.getElementById("Hours").innerHTML = Hours;
+//} else if (Hour == 23){
+    } else if (Hour == 4){
+        resetTime();
+        document.getElementById("Hours").innerHTML = Hours;
 
     }
 
-    if ( Seconds < 59){
-    Seconds++;
-    Seconds.innerHTML = "0" + Seconds;
-    //console.log (MilliSeconds);
-    document.getElementById("timer").innerHTML = Seconds + "." + Seconds;
-    }
-
 }
-
-    document.getElementById("timer").innerHTML = Hours + ":" + Minutes + ":" +MilliSeconds;
-
-
-*/
