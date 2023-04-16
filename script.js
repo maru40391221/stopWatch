@@ -1,4 +1,4 @@
-let Hours =0;
+let Hours = 0;
 let Minutes =0;
 let Seconds =0;
 let MilliSeconds=0;
@@ -15,12 +15,6 @@ button3.onclick = resetTime;
 
 function startTime(){
     setInterval(appendMillisecond, 100);
-    
-    if (Seconds == 5){
-        Seconds= 0;
-        appendMinute ();
-        console.log (appendMinute);
-    } 
 }
 
 function stopTime(){
@@ -37,19 +31,27 @@ function appendMillisecond(){
     MilliSeconds++;
     MilliSeconds.innerHTML = "0" + MilliSeconds;
     console.log (MilliSeconds + "ms");
-   document.getElementById("timer").innerHTML = MilliSeconds;
+    timer.innerHTML = MilliSeconds;
 
     } else if (MilliSeconds == 9){
         MilliSeconds = 0;
         Seconds ++;
-        console.log (Seconds + "s" );
-    }
+        console.log (Seconds + "Seconds" );
+        timer.innerHTML = Seconds;
+    } 
+
+    if (Seconds == 60 ){
+        Seconds= 0;
+        appendMinute ();
+        //console.log (appendMinute);
+    } 
+    document.getElementById("timer").innerHTML = Hours + ":" + Minutes + ":" +MilliSeconds;
 
 }
 
 function appendMinute (){
     Minutes ++;
-    console.log (Minutes + "m");
+    console.log (Minutes + "Minutes");
 }
 
 
