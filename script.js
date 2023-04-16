@@ -36,6 +36,7 @@ function resetTime(){
     button2.disabled = true;
     button3.disabled = true;
     button1.innerHTML = "Start";
+    firstScreen ();
 }
 
 function appendMillisecond(){
@@ -45,7 +46,7 @@ function appendMillisecond(){
     if ( MilliSeconds <= 2){
     MilliSeconds++;
     MilliSeconds.innerHTML = "0" + MilliSeconds;
-    console.log (MilliSeconds + "ms");
+    //console.log (MilliSeconds + "ms");
     document.getElementById("MilliSeconds").innerHTML = MilliSeconds;
 //} else if (MilliSeconds == 9){
     } else if (MilliSeconds == 3){
@@ -55,13 +56,14 @@ function appendMillisecond(){
     } 
 
 
+
 }
 
 function appendSecond(){
 //if (Seconds <=58) {
     if (Seconds <=5) {
         Seconds ++;
-        console.log (Seconds + "Seconds" );
+//console.log (Seconds + "Seconds" );
         document.getElementById("Seconds").innerHTML = Seconds;
 //} else if (Seconds == 59){
     } else if (Seconds == 6){
@@ -71,6 +73,8 @@ function appendSecond(){
         console.log (Seconds + "Seconds" );
     }
 
+
+
 }
 
 
@@ -78,7 +82,7 @@ function appendMinute (){
 //if (Minutes <=58) {
     if (Minutes <=3) {
         Minutes ++;
-        console.log (Minutes + "Minutes" );
+//console.log (Minutes + "Minutes" );
         document.getElementById("Minutes").innerHTML = Minutes;
 //} else if (Minutes == 59){
     } else if (Minutes == 4){
@@ -87,13 +91,14 @@ function appendMinute (){
         console.log (Minutes + "Minutes");
         document.getElementById("Minutes").innerHTML = Minutes;
     }
+
 } 
 
 function appendHours (){ 
 //if (Hours <=22) {
     if (Hours <=3) {
         Hours ++;
-        console.log (Hours + "hours");
+//console.log (Hours + "hours");
         document.getElementById("Hours").innerHTML = Hours;
 //} else if (Hour == 23){
     } else if (Hour == 4){
@@ -101,5 +106,9 @@ function appendHours (){
         document.getElementById("Hours").innerHTML = Hours;
 
     }
+
+}
+
+function firstScreen (){
 
 }
