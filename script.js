@@ -17,11 +17,10 @@ button3.disabled = true;
 
 
 function startTime(){
-    setInterval(appendMillisecond, 100);
+    startTimeInterval = setInterval(appendMillisecond, 100);
     button1.disabled = true;
     button2.disabled = false;
     button3.disabled = false;
-
 }
 
 function stopTime(){
@@ -29,6 +28,7 @@ function stopTime(){
     button2.disabled = true;
     button3.disabled = true;
     button1.innerHTML = "Re-start";
+    clearInterval(startTimeInterval);
 }
 
 function resetTime(){
@@ -54,7 +54,6 @@ function appendMillisecond(){
         document.getElementById("MilliSeconds").innerHTML = MilliSeconds;
         appendSecond();
     } 
-
 
 
 }
@@ -104,11 +103,23 @@ function appendHours (){
     } else if (Hour == 4){
         resetTime();
         document.getElementById("Hours").innerHTML = Hours;
-
     }
+
 
 }
 
 function firstScreen (){
+    MilliSeconds = 0;
+    Seconds = 0;
+    Minutes = 0;
+    Hours = 0;
+
+    document.getElementById("MilliSeconds").innerHTML = "0" + MilliSeconds;
+    document.getElementById("Seconds").innerHTML = "0"+ Seconds;
+    document.getElementById("Minutes").innerHTML = "0"+ Minutes; 
+    document.getElementById("Hours").innerHTML = "0"+ Hours;
+
+    console.log ("firstScreen");
 
 }
+
